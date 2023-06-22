@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +31,7 @@
             $url = "api/index.php?id=" . $blogId;
             $response = file_get_contents($url);
             $blog = json_decode($response);
-            if ($blog) {
+            if ($blog && isset($blog->title) && isset($blog->content)) {
                 echo "<h3>{$blog->title}</h3>";
                 echo "<p>{$blog->content}</p>";
             } else {
